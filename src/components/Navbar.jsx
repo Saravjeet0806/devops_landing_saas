@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { navItems } from '../constants'
 
@@ -9,6 +9,9 @@ const Navbar = () => {
   const toggleNavbar = () => {
     setmobileDrawerOpen(!mobileDrawerOpen);
   }
+
+  const linkClasses = ({ isActive }) =>
+    isActive? 'text-orange-500 font-semibold':'hover:text-orange-400 transition'  
 
   return (
     <nav className="py-3 sticky top-0 z-50 backdrop-blur-lg border-b border-neutral-700/80">
@@ -21,7 +24,9 @@ const Navbar = () => {
           <ul className='hidden lg:flex ml-14 space-x-14'>
             {navItems.map((item, index) =>
               <li key={index}>
-                <a href={item.href}>{item.label}</a>
+                <NavLink to={item.href} className={linkClasses}>
+                  {item.label}
+                </NavLink>
               </li>
             )}
           </ul>
@@ -44,7 +49,11 @@ const Navbar = () => {
             <ul>
               {navItems.map((item, index) => (
                 <li key={index} className='py-4'>
-                  <a href={item.href}>{item.label}</a>
+                  <NavLink to={item.href} className={linkClasses} 
+                  onClick={() => setmobileDrawerOpen(false)} // close drawer on click
+                  >
+                    {item.label}
+                  </NavLink>
                 </li>
               ))}
             </ul>
