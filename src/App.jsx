@@ -5,7 +5,7 @@ import Support from './pages/Support'
 import Pricing from './pages/Pricing'
 import Testimonials from './pages/Testimonials'
 import HeroSection from './components/HeroSection'
-import Features from './components/Features' // Import your Features component
+import Features from './components/Features' 
 
 const App = () => {
   return (
