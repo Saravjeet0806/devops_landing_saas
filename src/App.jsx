@@ -5,20 +5,27 @@ import Support from './pages/Support'
 import Pricing from './pages/Pricing'
 import Testimonials from './pages/Testimonials'
 import HeroSection from './components/HeroSection'
+import Features from './components/Features' // Import your Features component
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <div className="max-w-7xl mx-auto pt-20 px-6"><Routes>  {/*content below the navbar is in this div */}
-        <Route path="/" element={<HeroSection />} />
-        <Route path="/tools" element={<Tools />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-      </Routes>
+      <div className="max-w-7xl mx-auto pt-20 px-6">
+        <Routes>
+          <Route path="/" element={
+              <>
+                <HeroSection />
+                <Features />  
+              </>
+            }
+          />
+          <Route path="/tools" element={<Tools />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+        </Routes>
       </div>
-
     </Router>
   )
 }
