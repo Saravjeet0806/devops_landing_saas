@@ -6,7 +6,7 @@ import Pricing from './pages/Pricing'
 import Testimonials from './pages/Testimonials'
 import HeroSection from './components/HeroSection'
 import Features from './components/Features' 
-
+import Workflow from './components/Workflow'
 const App = () => {
   return (
     <Router>
@@ -17,6 +17,7 @@ const App = () => {
               <>
                 <HeroSection />
                 <Features />  
+                <Workflow />
               </>
             }
           />
