@@ -7,6 +7,7 @@ import Testimonials from './pages/Testimonials'
 import HeroSection from './components/HeroSection'
 import Features from './components/Features' 
 import Workflow from './components/Workflow'
+import Footer from './components/Footer'
 const App = () => {
   return (
     <Router>
@@ -20,6 +21,7 @@ const App = () => {
                 <Workflow />
                 <Pricing/>
                 <Testimonials/>
+                <Footer/>
               </>
             }
           />
