@@ -21,7 +21,6 @@ const App = () => {
                 <Workflow />
                 <Pricing/>
                 <Testimonials/>
-                <Footer/>
               </>
             }
           />
@@ -31,6 +30,7 @@ const App = () => {
           <Route path="/testimonials" element={<Testimonials />} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   )
 }
