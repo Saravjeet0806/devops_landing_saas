@@ -125,36 +125,37 @@ export const checklistItems = [
 
 export const pricingOptions = [
   {
-    title: "Free",
+    title: "Starter",
     price: "$0",
     features: [
-      "Private board sharing",
-      "5 Gb Storage",
-      "Web Analytics",
-      "Private Mode",
+      "Basic CI/CD Pipelines",
+      "1 Concurrent Build",
+      "Community Support",
+      "Git Integration",
     ],
   },
   {
-    title: "Pro",
-    price: "$10",
+    title: "Professional",
+    price: "$70",
     features: [
-      "Private board sharing",
-      "10 Gb Storage",
-      "Web Analytics (Advance)",
-      "Private Mode",
+      "Advanced CI/CD Pipelines",
+      "5 Concurrent Builds",
+      "Automated Rollbacks",
+      "Monitoring & Alerts",
     ],
   },
   {
     title: "Enterprise",
     price: "$200",
     features: [
-      "Private board sharing",
-      "Unlimited Storage",
-      "High Performance Network",
-      "Private Mode",
+      "Unlimited CI/CD Pipelines",
+      "20+ Concurrent Builds",
+      "24/7 Priority Support",
+      "Security & Compliance Tools",
     ],
   },
 ];
+
 
 export const resourcesLinks = [
   { href: "#", text: "Getting Started" },

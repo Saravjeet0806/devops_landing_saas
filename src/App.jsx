@@ -18,6 +18,7 @@ const App = () => {
                 <HeroSection />
                 <Features />  
                 <Workflow />
+                <Pricing/>
               </>
             }
           />
