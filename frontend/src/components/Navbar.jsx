@@ -11,7 +11,7 @@ const Navbar = () => {
   }
 
   const linkClasses = ({ isActive }) =>
-    isActive? 'text-orange-500 font-semibold':'hover:text-orange-400 transition'  
+    isActive ? 'text-orange-500 font-semibold' : 'hover:text-orange-400 transition'
 
   return (
     <nav className="py-3 sticky top-0 z-50 backdrop-blur-lg border-b border-neutral-700/80">
@@ -32,7 +32,8 @@ const Navbar = () => {
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center"> {/*hidden by default but available for large screens*/}
             <a href="#" className='py-2 px-3 border rounded-md'>Sign In</a>
-            <a href="#" className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create an Account</a>
+            <NavLink to="/signup" className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'> Create an Account</NavLink>
+
           </div>
           <div className="lg:hidden md:flex flex-col justify-end"> {/*hidden for large screens*/}
             <button onClick={toggleNavbar}>
@@ -44,13 +45,13 @@ const Navbar = () => {
           <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
             <div className="flex space-x-6">
               <a href="#" className='py-2 px-3 border rounded-md'>Sign In</a>
-              <a href="#" className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create an Account</a>
+              <NavLink to="/signup" onClick={() => setmobileDrawerOpen(false)} className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create an Account</NavLink>
             </div>
             <ul>
               {navItems.map((item, index) => (
                 <li key={index} className='py-4'>
-                  <NavLink to={item.href} className={linkClasses} 
-                  onClick={() => setmobileDrawerOpen(false)} // close drawer on click
+                  <NavLink to={item.href} className={linkClasses}
+                    onClick={() => setmobileDrawerOpen(false)} // close drawer on click
                   >
                     {item.label}
                   </NavLink>
