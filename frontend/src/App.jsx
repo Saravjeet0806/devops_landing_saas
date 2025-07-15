@@ -8,6 +8,7 @@ import HeroSection from './components/HeroSection'
 import Features from './components/Features' 
 import Workflow from './components/Workflow'
 import Footer from './components/Footer'
+import Signup from './components/Signup'
 const App = () => {
   return (
     <Router>
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/signup" element={<Signup />} />
+
         </Routes>
       </div>
       <Footer/>
