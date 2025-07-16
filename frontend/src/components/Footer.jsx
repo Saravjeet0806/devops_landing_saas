@@ -36,7 +36,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-sm text-center">
-          © {new Date().getFullYear()} AarogyaAi. Built  by
+          © {new Date().getFullYear()} DevOps Mania. Built  by
           <a
             href="https://github.com/Saravjeet0806"
             target="_blank"
