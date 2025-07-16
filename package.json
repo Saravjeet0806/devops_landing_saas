@@ -1,32 +1,29 @@
 {
-  "name": "devops-landing",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "devops_landing_saas",
+  "version": "1.0.0",
+  "main": "backend/index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+		"dev": "NODE_ENV=development nodemon backend/index.js",
+		"start": "NODE_ENV=production node backend/index.js",
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+	},
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.10",
-    "lucide-react": "^0.517.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.6.2",
-    "tailwindcss": "^4.1.10"
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mailtrap": "^4.2.0",
+    "mongoose": "^8.16.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
-    "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^16.0.0",
-    "vite": "^6.3.5"
+    "nodemon": "^3.1.10"
   }
 }
