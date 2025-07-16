@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "backend/index.js",
   "scripts": {
-    "dev": "nodemon backend/index.js"
-  },
+		"dev": "NODE_ENV=development nodemon backend/index.js",
+		"start": "NODE_ENV=production node backend/index.js",
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+	},
   "keywords": [],
   "author": "",
   "type": "module",
@@ -13,6 +15,7 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
