@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Bot, User } from 'lucide-react';
 
 const Chatbot = () => {
   const [userInput, setUserInput] = useState('');
@@ -26,16 +27,17 @@ const Chatbot = () => {
           body: JSON.stringify({
             contents: [
               {
-                parts: [{ text: prompt }]
-              }
-            ]
+                parts: [{ text: prompt }],
+              },
+            ],
           }),
         }
       );
 
       const data = await response.json();
       const fullReply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response received';
-      const replyText = fullReply.split(' ').slice(0, 50).join(' ') + (fullReply.split(' ').length > 50 ? '...' : '');
+      const replyText =
+        fullReply.split(' ').slice(0, 50).join(' ') + (fullReply.split(' ').length > 50 ? '...' : '');
 
       setConversation(prev => [...prev, { role: 'bot', text: replyText }]);
     } catch (error) {
@@ -47,32 +49,42 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4 text-white rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-4 text-center text-white">AI Chatbot</h1>
-      <div className="h-100 overflow-y-auto border border-orange-500 p-2 mb-4 rounded">
+    <div className="max-w-xl mx-auto pt-10 text-white rounded-lg shadow-xl">
+      <h1 className="text-3xl font-bold mb-6 text-center text-orange-400 drop-shadow">⚙️ DevOps Chatbot</h1>
+
+      <div className="h-[400px] overflow-y-auto border border-orange-500 p-4 mb-4 rounded space-y-4 bg-[#2a2a40]">
         {conversation.map((msg, idx) => (
-          <div key={idx} className={`mb-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-            <span className={`inline-block p-2 rounded-lg max-w-xs break-words ${
-              msg.role === 'user' ? 'bg-orange-600 text-white' : 'bg-gray-700 text-white'
-            }`}>
-              {msg.text}
-            </span>
+          <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className="flex items-start gap-2 max-w-[75%]">
+              {msg.role === 'bot' && <Bot size={24} className="text-orange-400 mt-1" />}
+              {msg.role === 'user' && <User size={24} className="text-orange-400 mt-1" />}
+              <span
+                className={`p-3 rounded-2xl text-sm leading-relaxed shadow-md transition-all ${
+                  msg.role === 'user'
+                    ? 'bg-gradient-to-br from-orange-600 to-orange-500 text-white'
+                    : 'bg-gray-800 text-white'
+                }`}
+              >
+                {msg.text}
+              </span>
+            </div>
           </div>
         ))}
-        {loading && <p className="text-center text-gray-400">Loading...</p>}
+        {loading && <p className="text-center text-gray-400">Generating response...</p>}
       </div>
+
       <div className="flex gap-2">
         <input
-          className="flex-1 border border-gray-600 bg-[#1e1e2f] text-white px-4 py-2 rounded-md focus:outline-none focus:border-orange-500"
+          className="flex-1 border border-gray-600 bg-[#1e1e2f] text-white px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-400"
           type="text"
-          placeholder="Ask anything about Devops..."
+          placeholder="Ask anything about DevOps..."
           value={userInput}
           onChange={e => setUserInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleSend()}
         />
         <button
           onClick={handleSend}
-          className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
+          className="bg-orange-500 text-white px-5 py-2.5 rounded-md font-semibold hover:bg-orange-600 transition"
         >
           Send
         </button>
