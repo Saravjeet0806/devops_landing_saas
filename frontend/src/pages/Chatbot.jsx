@@ -73,7 +73,7 @@ const Chatbot = () => {
         {loading && <p className="text-center text-gray-400">Generating response...</p>}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 sm:flex-row flex-col items-center sm:items-start">
         <input
           className="flex-1 border border-gray-600 bg-[#1e1e2f] text-white px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-400"
           type="text"
@@ -84,7 +84,7 @@ const Chatbot = () => {
         />
         <button
           onClick={handleSend}
-          className="bg-orange-500 text-white px-5 py-2.5 rounded-md font-semibold hover:bg-orange-600 transition"
+          className="bg-orange-500 text-white px-5 py-2.5 rounded-md font-semibold  hover:bg-orange-600 transition"
         >
           Send
         </button>
