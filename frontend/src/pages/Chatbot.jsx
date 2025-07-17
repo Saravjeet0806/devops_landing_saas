@@ -53,7 +53,7 @@ const Chatbot = () => {
         {conversation.map((msg, idx) => (
           <div key={idx} className={`mb-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
             <span className={`inline-block p-2 rounded-lg max-w-xs break-words ${
-              msg.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-white'
+              msg.role === 'user' ? 'bg-orange-600 text-white' : 'bg-gray-700 text-white'
             }`}>
               {msg.text}
             </span>
