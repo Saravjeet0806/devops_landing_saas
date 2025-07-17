@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Tools from './pages/Tools';
+import AIassist from './pages/AIassist';
 import Support from './pages/Support';
 import Pricing from './pages/Pricing';
 import Testimonials from './pages/Testimonials';
@@ -28,7 +28,7 @@ const App = () => {
               </>
             }
           />
-          <Route path="/tools" element={<Tools />} />
+          <Route path="/aiassist" element={<AIassist />} />
           <Route path="/support" element={<Support />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/testimonials" element={<Testimonials />} />
