@@ -114,14 +114,15 @@ const Navbar = () => {
                 <NavLink
                   to="/login"
                   onClick={() => setMobileDrawerOpen(false)}
-                  className="py-2 px-3 border rounded-md hover:border-orange-400"
+                  className="py-2 px-3 border rounded-md hover:border-orange-400 whitespace-nowrap"
                 >
                   Sign In
                 </NavLink>
+
                 <NavLink
                   to="/signup"
                   onClick={() => setMobileDrawerOpen(false)}
-                  className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md text-white"
+                  className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md text-white whitespace-nowrap"
                 >
                   Create an Account
                 </NavLink>
