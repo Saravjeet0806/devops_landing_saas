@@ -11,11 +11,18 @@ const HeroSection = () => {
       </h1>
       <p className='mt-10 text-lg text-neutral-500 max-w-4xl text-center'>Empower your workflow and streamline your DevOps process with our powerful automation tools. Get started today and transform your projects into seamless deployments!</p>
       <div className="flex justify-center my-10">
-        <a href="#" className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md">Start for free</a>
-        <a href="#" className="py-3 px-4 mx-3 rounded-md border">  Documentation</a>
+        <div className="flex flex-wrap justify-center sm:justify-start items-center">
+          <a href="#" className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 sm:py-3 sm:px-4 mx-2 sm:mx-3 rounded-md text-sm sm:text-base whitespace-nowrap ">
+            Start for free
+          </a>
+          <a href="#" className="py-2 px-3 sm:py-3 sm:px-4 mx-2 sm:mx-3 rounded-md border text-sm sm:text-base whitespace-nowrap">
+            Documentation
+          </a>
+        </div>
+
       </div>
 
-        <div className="flex mt-10 justify-center">
+      <div className="flex mt-10 justify-center">
         <video autoPlay loop muted className="rounded-lg w-1/2 border border-blue-400 shadow-sm shadow-orange-400 mx-2 my-4">
           <source src={video1} type="video/mp4" />
           Your browser does not support the video tag.
