@@ -4,3 +4,6 @@
 
 ### npm install zustand framer-motion react-hot-toast
 
+### npm install react-markdown
+
+
