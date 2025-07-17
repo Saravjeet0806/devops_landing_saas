@@ -26,17 +26,17 @@ const SignUpPage = () => {
 	};
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-[#1a1a1a] px-4">
+		<div className="min-h-screen flex items-center justify-center  px-4">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className='max-w-md w-full bg-gray-900 bg-opacity-60 backdrop-filter backdrop-blur-xl 
+				className='max-w-md w-full  bg-opacity-60 backdrop-filter backdrop-blur-xl 
 				rounded-2xl shadow-xl overflow-hidden'
 			>
 				<div className='p-8 text-center'>
-					<h2 className='text-3xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-orange-600 text-transparent bg-clip-text'>
-						Create Account
+					<h2 className='text-4xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-orange-600 text-transparent bg-clip-text'>
+						Register Now
 					</h2>
 
 					<form onSubmit={handleSignUp} className="flex flex-col items-center">
