@@ -16,13 +16,14 @@ const Chatbot = () => {
     try {
       const prompt = `${userInput.trim()}. Answer in 50 words only.`;
 
-      const response = await fetch('http://localhost:5000/api/chat/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt }),
-      });
+      const response = await fetch('https://devops-landing-saas.onrender.com/api/chat/chat',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ prompt }),
+        });
 
 
       const data = await response.json();
@@ -51,8 +52,8 @@ const Chatbot = () => {
               {msg.role === 'user' && <User size={24} className="text-orange-400 mt-1" />}
               <span
                 className={`p-3 rounded-2xl text-sm leading-relaxed shadow-md transition-all ${msg.role === 'user'
-                    ? 'bg-gradient-to-br from-orange-600 to-orange-500 text-white'
-                    : 'bg-gray-800 text-white'
+                  ? 'bg-gradient-to-br from-orange-600 to-orange-500 text-white'
+                  : 'bg-gray-800 text-white'
                   }`}
               >
                 {msg.text}
