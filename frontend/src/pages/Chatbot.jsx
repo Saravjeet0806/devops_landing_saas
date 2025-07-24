@@ -16,26 +16,17 @@ const Chatbot = () => {
     try {
       const prompt = `${userInput.trim()}. Answer in 50 words only.`;
 
-      const response = await fetch(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-goog-api-key': import.meta.env.VITE_GEMINI_API_KEY,
-          },
-          body: JSON.stringify({
-            contents: [
-              {
-                parts: [{ text: prompt }],
-              },
-            ],
-          }),
-        }
-      );
+      const response = await fetch('http://localhost:5000/api/chat/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt }),
+      });
+
 
       const data = await response.json();
-      const fullReply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response received';
+      const fullReply = data.text || 'No response received';
       const replyText =
         fullReply.split(' ').slice(0, 50).join(' ') + (fullReply.split(' ').length > 50 ? '...' : '');
 
@@ -59,11 +50,10 @@ const Chatbot = () => {
               {msg.role === 'bot' && <Bot size={24} className="text-orange-400 mt-1" />}
               {msg.role === 'user' && <User size={24} className="text-orange-400 mt-1" />}
               <span
-                className={`p-3 rounded-2xl text-sm leading-relaxed shadow-md transition-all ${
-                  msg.role === 'user'
+                className={`p-3 rounded-2xl text-sm leading-relaxed shadow-md transition-all ${msg.role === 'user'
                     ? 'bg-gradient-to-br from-orange-600 to-orange-500 text-white'
                     : 'bg-gray-800 text-white'
-                }`}
+                  }`}
               >
                 {msg.text}
               </span>
