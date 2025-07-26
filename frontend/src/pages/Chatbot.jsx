@@ -13,6 +13,14 @@ const Chatbot = () => {
     setConversation(prev => [...prev, newMessage]);
     setLoading(true);
 
+    //   const response = await fetch('http://localhost:5000/api/chat/chat', { // use it in development
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ prompt }),
+    // });
+
     try {
       const prompt = `${userInput.trim()}. Answer in 50 words only.`;
 
