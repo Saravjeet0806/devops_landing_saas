@@ -16,8 +16,8 @@ resource "aws_instance" "devops_landing_saas" {
   }
 }
 
-resource "aws_security_group" "mern_sg" {
-  name        = "mern-sg"
+resource "aws_security_group" "my-sg" {
+  name        = "my-sg"
   description = "Allow HTTP and SSH"
 
   ingress {
