@@ -1,0 +1,19 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm install
+
+# Copy the backend directory content into the container
+COPY backend ./backend
+
+# Copy the .env file from its location within the build context (devops/.env)
+# The build context is the root of your project.
+COPY devops/.env ./.env
+
+EXPOSE 5000
+
+CMD ["npm", "start"]

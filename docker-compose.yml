@@ -1,0 +1,47 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    # Build the backend image using Dockerfile.backend in the devops directory
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile.backend
+    # Map port 5000 on the host to port 5000 in the container
+    ports:
+      - "5000:5000"
+    # Mount the .env file directly into the container from its new location in devops
+    env_file:
+      - ./devops/.env
+    # Explicitly set NODE_ENV to development for the backend container
+    # This prevents the backend from trying to serve frontend static files
+    environment:
+      NODE_ENV: development
+    # Restart the container if it exits unexpectedly
+    restart: always
+    # Define a network for the backend to communicate with other services
+    networks:
+      - mern-network
+
+  frontend:
+    # Build the frontend image using Dockerfile.frontend in the devops directory
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile.frontend
+    # Map port 80 on the host to port 80 in the container
+    ports:
+      - "80:80"
+    # Frontend depends on the backend to be healthy before starting
+    # This helps ensure the backend is up when the frontend tries to connect
+    depends_on:
+      - backend
+    # Restart the container if it exits unexpectedly
+    restart: always
+    # Define a network for the frontend to communicate with other services
+    networks:
+      - mern-network
+
+# Define the custom network
+networks:
+  mern-network:
+    driver: bridge
